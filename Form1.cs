@@ -80,13 +80,10 @@ namespace Toy
                 Controller.MissedBalls++;
                 Controls.Remove(Controller.CurrentBall);
             }
-            //Ball ball = 
             Controller.CurrentBall = new Ball(ClientSize.Width, ClientSize.Height); ;
             Controller.CurrentBall.Click += BallOnClick;
             Controls.Add(Controller.CurrentBall);
             Controller.CurrentBall.BringToFront();
-
-            
         }
        
         private void ShowPopUp()
