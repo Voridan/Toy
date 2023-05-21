@@ -23,9 +23,7 @@ namespace Toy
         }
         private void Game_Load_1(object sender, EventArgs e)
         {
-            content.Text = "у випадкових місцях у межах вікна з'являються різноколірні кружечки на нетривалий період. " +
-                "За цей час потрібно клацнути на них мишкою. За кожне попадання нараховують очки, за кожен пропущений " +
-                "кружечок нараховують штраф. Гра завершується, коли штраф досягає" + $" {Controller.MissedThreshold}";
+            content.Text = Controller.Rules;
         }
         private void startGame_Click(object sender, EventArgs e)
         {
@@ -33,6 +31,7 @@ namespace Toy
             content.Visible = false;
             showPlayers.Visible = false;
             startGame.Visible = false;
+            showRules.Visible = false; 
             scoreInfo.Visible = true;
             stopGame.Visible = true;
             bestScore.Text = Controller.Player.BestScore.ToString();
@@ -50,7 +49,7 @@ namespace Toy
         }
         public void PenaltyWatcher(object sender, EventArgs args)
         {
-            if(Controller.MissedBalls >= Controller.MissedThreshold)
+            if(Controller.MissedBalls >= Controller.MissedThreshold || Controller.Player.Score < -50)
                 EndGame();
         }
         public void BallOnClick(object sender, EventArgs args)
@@ -77,15 +76,16 @@ namespace Toy
         {
             if (Controls.Contains(Controller.CurrentBall))
             {
-                Controller.MissedBalls++;
+                if(Controller.CurrentBall?.Color != Color.Green)
+                    Controller.MissedBalls++;
                 Controls.Remove(Controller.CurrentBall);
             }
-            Controller.CurrentBall = new Ball(ClientSize.Width, ClientSize.Height); ;
+
+            Controller.CurrentBall = new Ball(ClientSize.Width, ClientSize.Height);
             Controller.CurrentBall.Click += BallOnClick;
             Controls.Add(Controller.CurrentBall);
             Controller.CurrentBall.BringToFront();
         }
-       
         private void ShowPopUp()
         {
             Form prompt = new Form();
@@ -127,6 +127,7 @@ namespace Toy
             content.Visible = true;
             showPlayers.Visible = true;
             startGame.Visible = true;
+            showRules.Visible = true;
             scoreInfo.Visible = false;
             stopGame.Visible = false;
 
@@ -135,6 +136,10 @@ namespace Toy
                 if (Controls[i] is Ball)
                     Controls.RemoveAt(i);
             }
+        }
+        private void showRules_Click(object sender, EventArgs e)
+        {
+            content.Text = Controller.Rules;
         }
     }
 }

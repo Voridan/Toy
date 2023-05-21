@@ -37,25 +37,25 @@
             this.bestScore = new System.Windows.Forms.Label();
             this.scoreInfo = new System.Windows.Forms.GroupBox();
             this.stopGame = new System.Windows.Forms.Button();
+            this.showRules = new System.Windows.Forms.Button();
             this.scoreInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // content
             // 
-            this.content.Enabled = false;
             this.content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.content.Location = new System.Drawing.Point(18, 33);
             this.content.Multiline = true;
             this.content.Name = "content";
             this.content.ReadOnly = true;
             this.content.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.content.Size = new System.Drawing.Size(768, 309);
+            this.content.Size = new System.Drawing.Size(795, 309);
             this.content.TabIndex = 0;
             // 
             // showPlayers
             // 
             this.showPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.showPlayers.Location = new System.Drawing.Point(150, 394);
+            this.showPlayers.Location = new System.Drawing.Point(295, 394);
             this.showPlayers.Name = "showPlayers";
             this.showPlayers.Size = new System.Drawing.Size(232, 59);
             this.showPlayers.TabIndex = 1;
@@ -66,7 +66,7 @@
             // startGame
             // 
             this.startGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.startGame.Location = new System.Drawing.Point(435, 394);
+            this.startGame.Location = new System.Drawing.Point(565, 394);
             this.startGame.Name = "startGame";
             this.startGame.Size = new System.Drawing.Size(232, 59);
             this.startGame.TabIndex = 2;
@@ -140,6 +140,17 @@
             this.stopGame.Visible = false;
             this.stopGame.Click += new System.EventHandler(this.stopGame_Click);
             // 
+            // showRules
+            // 
+            this.showRules.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.showRules.Location = new System.Drawing.Point(22, 394);
+            this.showRules.Name = "showRules";
+            this.showRules.Size = new System.Drawing.Size(232, 59);
+            this.showRules.TabIndex = 9;
+            this.showRules.Text = "Правила";
+            this.showRules.UseVisualStyleBackColor = true;
+            this.showRules.Click += new System.EventHandler(this.showRules_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -147,6 +158,7 @@
             this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(844, 505);
+            this.Controls.Add(this.showRules);
             this.Controls.Add(this.stopGame);
             this.Controls.Add(this.scoreInfo);
             this.Controls.Add(this.startGame);
@@ -173,6 +185,7 @@
         private System.Windows.Forms.Label bestScore;
         private System.Windows.Forms.GroupBox scoreInfo;
         private System.Windows.Forms.Button stopGame;
+        private System.Windows.Forms.Button showRules;
     }
 }
 

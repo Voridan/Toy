@@ -1,3 +1,5 @@
 serzh,79
 olga,3
-alina,11
+alina,90
+sasha,40
+viktor,-40

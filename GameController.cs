@@ -16,12 +16,24 @@ namespace Toy
         public Ball CurrentBall;
         public Player Player;
         public bool NewPlayer = false;
-        public int Interval = 1000;
+        public int Interval;
         public int MissedBalls = 0;
         public int MissedThreshold;
-        public GameController(int missedThreshold) 
+        public string Rules = string.Empty;
+        public GameController(int missedThreshold, int interval=1000) 
         {
+            Interval = interval;
             MissedThreshold = missedThreshold;
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("У випадкових місцях у межах вікна з'являються різноколірні кружечки на нетривалий період." +
+                "За цей час потрібно клацнути на них мишкою. За кожне попадання нараховують очки, за кожен пропущений " +
+                "кружечок нараховують штраф. Гра завершується, коли штраф досягає" + $" {MissedThreshold} або кількість очок менша за -50");
+            stringBuilder.AppendLine("Різна ціна кульок: червона - 10, жовта - 5, синя - 0, зелена - (-20)");
+            stringBuilder.AppendLine("Якщо збити серію кульок однакового кольору, то очки подвоюються.");
+            stringBuilder.AppendLine("Поступово зменшується період відображення кружечка");
+
+            Rules = stringBuilder.ToString();
         }
         public void InitializePlayer(string name)
         {

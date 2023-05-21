@@ -14,13 +14,15 @@ namespace Toy
         public int Cost { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
+        public Color Color { get; set; }
         public Ball(int width, int height)
         {
             Random rnd = new Random();
             int size = rnd.Next(30, 50);
             X = rnd.Next(0, width - size - 50); // Random x position
             Y = rnd.Next(0, height - size - 150); // Random y position
-            BackColor = Colors.GetRandomColor();
+            Color = Colors.GetRandomColor();
+            BackColor = Color;
             Cost = Colors.GetColorCost(BackColor);
             Location = new Point(X, Y);
             Cursor = Cursors.Hand;
